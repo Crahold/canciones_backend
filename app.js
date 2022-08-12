@@ -19,6 +19,6 @@ app.use("/canciones", cancionesRoutes);
 app.use(express.static("media"));
 
 //COMANDO DE EJECUCION DE SERVIDOR
-var server = app.listen(5000, function(){
+var server = app.listen(process.env.PORT || 5000, function(){
     console.log("Servidor escuchando en el puerto" , app.get('port'));
 });
