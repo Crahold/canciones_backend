@@ -12,14 +12,7 @@ db.once("open", () => console.log("Conectado a la Base de Datos"));
 
 //CONFIGURACION DE RUTAS DE SERVIDOR
 app.use(express.json());
-app.use(cors());
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-COntrol-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-    next();
-    })
+app.use(cors(options));
 const cancionesRoutes = require("./routes/canciones_routes");
 app.use("/canciones", cancionesRoutes);
 
