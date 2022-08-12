@@ -5,7 +5,7 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 
 // conexión con la bd
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser : true});
+mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Conectado a la Base de Datos"));
@@ -20,5 +20,5 @@ app.use(express.static("media"));
 
 //COMANDO DE EJECUCION DE SERVIDOR
 var server = app.listen(5000, function(){
-    console.log("Servidor escuchando en el puerto 5000");
+    console.log("Servidor escuchando en el puerto" , app.get('port'));
 });
