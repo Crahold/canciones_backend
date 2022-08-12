@@ -12,7 +12,10 @@ db.once("open", () => console.log("Conectado a la Base de Datos"));
 
 //CONFIGURACION DE RUTAS DE SERVIDOR
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://frontendcanciones.herokuapp.com/',
+    methods: ['GET', 'POST', 'DELETE', 'PATCH']
+}));
 const cancionesRoutes = require("./routes/canciones_routes");
 app.use("/canciones", cancionesRoutes);
 
