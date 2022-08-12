@@ -13,7 +13,7 @@ db.once("open", () => console.log("Conectado a la Base de Datos"));
 //CONFIGURACION DE RUTAS DE SERVIDOR
 app.use(express.json());
 app.use(cors({
-    origin: '0.0.0.0/0',
+    origin: '*',
     methods: ['GET', 'POST', 'DELETE', 'PATCH']
 }));
 const cancionesRoutes = require("./routes/canciones_routes");
